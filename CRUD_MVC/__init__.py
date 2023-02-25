@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask
 from flask_migrate import Migrate
 from CRUD_MVC.models.model import db
 from CRUD_MVC.routes.routes import employee_manager
