@@ -1,32 +1,22 @@
 from ..models.model import db, User
-from flask import request, render_template, jsonify
-from ..forms.login import LoginForm
-from ..forms.register import RegisterForm
+from flask import request, render_template, url_for, redirect
+from ..forms.add import RegisterForm
 
 
-def method():
-    username = request.json["username"]
-    password = request.json["password"]
-    user = User(
-        username=username,
-        password=password
-    )
-    db.session.add(user)
-    db.session.commit()
-    return jsonify({
-        "message": "User created"
-    })
-
-
-def signup_user():
-    if request.method == "POST":
-        method()
+def add_user():
     form = RegisterForm()
-    return render_template("register.html", form=form)
-
-
-def login_user():
     if request.method == "POST":
-        method()
-    form = LoginForm()
-    return render_template("login.html", form=form)
+        if form.validate_on_submit():
+            username = request.form["username"]
+            password = request.form["password"]
+            user = User(
+                username=username,
+                password=password
+            )
+            db.session.add(user)
+            db.session.commit()
+            return redirect(url_for("wt_manager.add_user"))
+        if form.errors != {}:
+            return render_template("add.html", form=form, error=form.errors.values())
+    else:
+        return render_template("add.html", form=form, error=[])
