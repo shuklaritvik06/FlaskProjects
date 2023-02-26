@@ -12,8 +12,12 @@
 {{ form.password() }}
 {{ form.submit() }}
 </form>
-{%for err in error%}
-{{ err }}
+{% with messages = get_flashed_messages(with_categories=true) %}
+{%if messages%}
+{%for message in messages%}
+<p>{{message}}</p>
 {%endfor%}
+{%endif%}
+{%endwith%}
 </body>
 </html>

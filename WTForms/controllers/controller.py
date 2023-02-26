@@ -1,5 +1,5 @@
 from ..models.model import db, User
-from flask import request, render_template, url_for, redirect
+from flask import request, render_template, url_for, redirect, flash
 from ..forms.add import RegisterForm
 
 
@@ -15,8 +15,9 @@ def add_user():
             )
             db.session.add(user)
             db.session.commit()
-            return redirect(url_for("wt_manager.add_user"))
         if form.errors != {}:
-            return render_template("add.html", form=form, error=form.errors.values())
+            for err in form.errors.values():
+                flash(f"error: {err}")
+        return redirect(url_for("wt_manager.add_user"))
     else:
-        return render_template("add.html", form=form, error=[])
+        return render_template("add.html", form=form)
