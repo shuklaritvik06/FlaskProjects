@@ -4,7 +4,7 @@ from ..forms.add import RegisterForm
 
 
 def add_user():
-    form = RegisterForm()
+    form = RegisterForm(csrf_enabled=False)
     if request.method == "POST":
         if form.validate_on_submit():
             username = request.form["username"]
