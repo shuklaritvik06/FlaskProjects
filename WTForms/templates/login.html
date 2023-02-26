@@ -6,7 +6,10 @@
 </head>
 <body>
 <form method="post" action="/login">
-
+{{ form.username.label() }}
+{{ form.username() }}
+{{ form.password.label() }}
+{{ form.password() }}
 </form>
 </body>
 </html>
