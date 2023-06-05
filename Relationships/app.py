@@ -29,17 +29,22 @@ class Pets(db.Model):
 Many-To-Many Relationship
 """
 
-Employee_Dept = db.Table('Employee_Dept',
-                         db.Column('employee_id', db.Integer, db.ForeignKey('employee.id'), primary_key=True),
-                         db.Column('dept_id', db.Integer, db.ForeignKey('dept.dept_id'), primary_key=True)
-                         )
+Employee_Dept = db.Table(
+    "Employee_Dept",
+    db.Column(
+        "employee_id", db.Integer, db.ForeignKey("employee.id"), primary_key=True
+    ),
+    db.Column("dept_id", db.Integer, db.ForeignKey("dept.dept_id"), primary_key=True),
+)
 
 
 class Employee(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     age = db.Column(db.Integer, nullable=False)
-    departments = db.relationship("Dept", secondary=Employee_Dept, backref=db.backref('employees', lazy=True))
+    departments = db.relationship(
+        "Dept", secondary=Employee_Dept, backref=db.backref("employees", lazy=True)
+    )
 
 
 class Dept(db.Model):

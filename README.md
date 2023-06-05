@@ -2,10 +2,12 @@
 
 Learning Projects made using flask
 
-- [x] Authenticaion
+- [x] Basic Authentication
 - [x] CRUD MONGO
-- [x] CRUD MVC
-- [x] JWT
-- [x] Relationships
+- [x] CRUD SQLite
+- [x] JWT Authentication
+- [x] Relationships in Database
 - [x] WTForms
-- [x] Graphql   
+- [ ] Graphql
+- [ ] OAuth Authentication
+- [ ] Websocket

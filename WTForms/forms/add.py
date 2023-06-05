@@ -10,6 +10,6 @@ class RegisterForm(FlaskForm):
         if user:
             raise ValidationError("User already exists")
 
-    username = StringField(label='username', validators=[Length(min=2, max=30)])
-    password = PasswordField(label='password', validators=[DataRequired()])
-    submit = SubmitField(label='submit')
+    username = StringField(label="username", validators=[Length(min=2, max=30)])
+    password = PasswordField(label="password", validators=[DataRequired()])
+    submit = SubmitField(label="submit")
