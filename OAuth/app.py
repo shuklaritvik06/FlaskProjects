@@ -37,6 +37,21 @@ github = oauth.register(
 )
 
 
+twitter = oauth.register(
+    name='twitter',
+    client_id=os.getenv("TWITTER_CLIENT_ID"),
+    client_secret=os.getenv("TWITTER_CLIENT_SECRET"),
+    request_token_url='https://api.twitter.com/oauth/request_token',
+    request_token_params=None,
+    access_token_url='https://api.twitter.com/oauth/access_token',
+    access_token_params=None,
+    authorize_url='https://api.twitter.com/oauth/authenticate',
+    authorize_params=None,
+    api_base_url='https://api.twitter.com/1.1/',
+    client_kwargs={'verify': False}
+)
+
+
 class User(db.Model):
     user_id = db.Column(db.BigInteger, primary_key=True)
     email = db.Column(db.String, nullable=False, unique=True)

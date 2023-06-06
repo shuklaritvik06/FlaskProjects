@@ -8,6 +8,6 @@ Learning Projects made using flask
 - [x] JWT Authentication
 - [x] Relationships in Database
 - [x] WTForms
+- [x] OAuth Authentication
 - [ ] Graphql
-- [ ] OAuth Authentication
 - [ ] Websocket
