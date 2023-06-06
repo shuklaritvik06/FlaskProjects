@@ -1,5 +1,3 @@
-import datetime
-
 from ..models.model import db, Users
 from flask import render_template, request, redirect, url_for, make_response
 import bcrypt
