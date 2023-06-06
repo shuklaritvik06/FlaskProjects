@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS USER;
+
+CREATE TABLE USER(
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(100),
+    username VARCHAR(45),
+    password TEXT
+);
