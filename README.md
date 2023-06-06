@@ -9,5 +9,6 @@ Learning Projects made using flask
 - [x] Relationships in Database
 - [x] WTForms
 - [x] OAuth Authentication
+- [x] File Upload
 - [ ] Graphql
 - [ ] Websocket
