@@ -10,5 +10,5 @@ Learning Projects made using flask
 - [x] WTForms
 - [x] OAuth Authentication
 - [x] File Upload
-- [ ] Graphql
-- [ ] Websocket
+- [x] Graphql
+- [x] Websocket
