@@ -1,5 +1,7 @@
 # Flask Projects
 
+![banner](https://github.com/shuklaritvik06/FlaskProjects/assets/72812470/5422174d-f718-45a8-95df-b32d976667b8)
+
 Welcome to the Flask Projects repository! This collection of projects is designed to showcase various web application functionalities and backend implementations using the Flask framework. This README file serves as a guide to help you navigate and understand the contents of this repository.
 
 ## Key Features
