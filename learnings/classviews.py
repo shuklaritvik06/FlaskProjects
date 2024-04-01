@@ -1,5 +1,18 @@
-from flask.views import MethodView
+from flask.views import MethodView, View
 from flask import render_template, request, jsonify
+from flask.signals import request_finished
+
+
+class ListView(View):
+    decorators = []
+
+    def __init__(self, model, template):
+        self.model = model
+        self.template = template
+
+    def dispatch_request(self):
+        items = self.model.query.all()
+        return render_template(self.template, items=items)
 
 
 class ClassBasedView(MethodView):
@@ -9,16 +22,10 @@ class ClassBasedView(MethodView):
         return render_template("class.html")
 
     def post(self):
-        return jsonify({
-            "data": request.json["name"]
-        })
+        return jsonify({"data": request.json["name"]})
 
     def patch(self):
-        return jsonify({
-            "data": request.json["name"]
-        })
+        return jsonify({"data": request.json["name"]})
 
     def delete(self):
-        return jsonify({
-            "data": "Deleted"
-        })
+        return jsonify({"data": "Deleted"})
