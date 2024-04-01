@@ -5,6 +5,7 @@ from flask.signals import request_finished
 
 class ListView(View):
     decorators = []
+    methods = ["POST", "GET"]
 
     def __init__(self, model, template):
         self.model = model
