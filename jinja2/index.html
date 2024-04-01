@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jinja 2 Syntax</title>
+</head>
+<body>
+
+<!-- Variable Substitution -->
+<p>Hello, {{ name }}</p>
+
+<!-- Variable Substitution with Default Value -->
+<p>Hello, {{ name | default('Guest') }}</p>
+
+<!-- Conditional Statements -->
+{% if condition %}
+    <p>This is displayed if condition is true.</p>
+{% else %}
+    <p>This is displayed if condition is false.</p>
+{% endif %}
+
+<!-- Looping Over a List -->
+<ul>
+{% for item in items %}
+    <li>{{ item }}</li>
+{% endfor %}
+</ul>
+
+<!-- Commenting -->
+{# This is a comment. #}
+
+<!-- Filters -->
+<p>{{ sentence | upper }}</p>
+<p>{{ number | round }}</p>
+
+<!-- Filters with Arguments -->
+<p>{{ sentence | slice(0, 5) }}</p>
+<p>{{ number | format('{:.2f}') }}</p>
+
+<!-- Multiple Filters -->
+<p>{{ sentence | upper | slice(0, 5) }}</p>
+
+<!-- Template Inheritance -->
+{% extends "base.html" %}
+{% block content %}
+    <p>This is the content block in the child template.</p>
+{% endblock %}
+
+<!-- Macros -->
+{% macro greeting(name) %}
+    Hello, {{ name }}!
+{% endmacro %}
+
+{{ greeting('Alice') }}
+{{ greeting('Bob') }}
+
+<!-- Includes -->
+{% include 'sidebar.html' %}
+
+<!-- With Statement -->
+{% with user = users[0] %}
+    <p>{{ user.username }}</p>
+{% endwith %}
+</body>
+</html>
