@@ -20,7 +20,6 @@ Each Flask project in this repository demonstrates different backend functionali
 
 - **Third-Party Integrations**: Integrate external services and APIs into your Flask projects, such as payment gateways, email services, or social media platforms.
 
-
 - [x] Basic Authentication
 - [x] CRUD MONGO
 - [x] CRUD SQLite
