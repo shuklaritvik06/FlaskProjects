@@ -41,9 +41,15 @@ async def index():
     return jsonify(data)
 
 
+# Here there is no requirements for the path to be given as the function arguements
 @app.route("/hello/<lang_code>")
 async def handle_lang_code():
     return "Hello lang code"
+
+
+@app.route("/hi/<ramesh>")
+async def handle_ramesh(ramesh):
+    return f"Hello {ramesh}"
 
 
 if __name__ == "__main__":
