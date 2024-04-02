@@ -2,23 +2,39 @@
 
 ![banner](https://github.com/shuklaritvik06/FlaskProjects/assets/72812470/5422174d-f718-45a8-95df-b32d976667b8)
 
-Welcome to the Flask Projects repository! This collection of projects is designed to showcase various web application functionalities and backend implementations using the Flask framework. This README file serves as a guide to help you navigate and understand the contents of this repository.
+Welcome to the Flask Projects repository.
 
-## Key Features
+## Application Context
 
-Each Flask project in this repository demonstrates different backend functionalities, including but not limited to:
+Application context is an application-level context in Flask that represents the state and configurations of the Flask application. It holds information such as configuration settings, registered blueprints, and extensions. The application context is created when the Flask application starts running and is destroyed when the application stops.
 
-- **API Development**: Learn how to build custom APIs using Flask, enabling data retrieval and manipulation from external sources.
+In Flask, you can access the application context using the `current_app` proxy or by using the `app_context()` method.
 
-- **Database Integration**: Explore how Flask interacts with different database systems, such as SQLite, MySQL, or PostgreSQL, and handle CRUD operations efficiently.
+```python
+from flask import current_app
 
-- **User Authentication**: Implement secure user authentication and authorization mechanisms, including registration, login, and access control for protected resources.
+current_app.config['DEBUG'] = True
 
-- **Data Processing**: Discover how Flask can be used to process and analyze data, from handling form submissions to performing complex calculations and generating reports.
+with app.app_context():
+    pass
+```
 
-- **File Uploads and Downloads**: Understand how to handle file uploads, manage file storage, and enable users to download files from your Flask application.
+## Request Context
 
-- **Third-Party Integrations**: Integrate external services and APIs into your Flask projects, such as payment gateways, email services, or social media platforms.
+Request context is a request-level context in Flask that represents the state of an individual request made to the Flask application. It contains information about the current request such as request headers, request method, request data, and request parameters. Flask automatically creates and manages request contexts for each incoming request.
+
+In Flask, you can access the request context using the `request` proxy.
+
+```python
+from flask import request
+
+request.method  
+request.args    
+request.form    
+request.headers 
+```
+
+## Projects
 
 - [x] Basic Authentication
 - [x] CRUD MONGO
