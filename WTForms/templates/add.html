@@ -6,7 +6,8 @@
 </head>
 <body>
 <form method="post" action="/v1/add">
-    {{ form.csrf_token }}
+{{ form.hidden_tag() }}
+{{ form.csrf_token }}
 {{ form.username.label() }}
 {{ form.username() }}
 {{ form.password.label() }}
