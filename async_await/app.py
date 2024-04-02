@@ -22,12 +22,16 @@ def add_language_code(endpoint, values):
 @app.url_value_preprocessor
 def pull_lang_code(endpoint, values):
     # Pop the "lang_code" value from values dictionary and store it in g.lang_code.
+    if values is None:
+        return
     g.lang_code = values.pop("lang_code", None)
 
 
 async def fetch_data():
     async with aiohttp.ClientSession() as session:
-        async with session.get("url") as response:
+        async with session.get(
+            "https://jsonplaceholder.typicode.com/todos"
+        ) as response:
             return await response.json()
 
 
@@ -35,6 +39,11 @@ async def fetch_data():
 async def index():
     data = await fetch_data()
     return jsonify(data)
+
+
+@app.route("/hello/<lang_code>")
+async def handle_lang_code():
+    return "Hello lang code"
 
 
 if __name__ == "__main__":
